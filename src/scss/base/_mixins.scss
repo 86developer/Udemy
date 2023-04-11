@@ -1,0 +1,65 @@
+@use  'variables' as v;
+
+//* @include para evitar error de soporte de bloque de contenido al cargarlo con tantas directivas para las distintas partes donde se lo va a usar
+    @mixin telefono {
+         @media (min-width: v.$telefono) {
+             @content; //*agrega el contenido de /header.scss/navegacion-principal/@include
+         }
+    }
+    @mixin tablet {
+        @media (min-width: v.$tablet) {
+             @content;
+        }
+    }
+    @mixin desktop {
+        @media (min-width: v.$desktop ) {
+             @content;
+        }
+    } 
+    @mixin desktopXL {
+        @media (min-width: v.$desktopXL) {
+             
+        }
+    }
+    
+    @mixin grid($columnas, $espaciado) {
+        display: grid;
+        grid-template-columns: repeat($columnas, 1fr);
+        gap: $espaciado;
+    }
+
+    @mixin resetear-lista {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+/**
+    **Mixin con parametros (3) para heading
+    $color: para poder utilizar variable 
+    blue: si no se asigna variable de color por defecto sera blue
+    $border-radius: false (para activarlo true)
+
+    ** _header.scss
+    .prueba {
+        @include m.heading (v.$morado, true);
+    }
+    *!No olvidar cargar variables donde se usen en este caso _header.scss
+*/
+
+
+/*
+    @mixin heading ($color: blue, $border-radius: false) {
+    text-transform: uppercase;
+    font-size: 2.4rem;
+    color: $color;
+    letter-spacing: 10px;
+    background-color: black;
+
+    @if $border-radius {
+        border-radius: 4rem;
+        }
+    
+    }
+*/
+    

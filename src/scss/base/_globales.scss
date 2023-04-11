@@ -1,0 +1,51 @@
+@use 'variables' as v;
+//Snippet Paul Irish (encuadra parametros globales 10px = 1 rem)
+html {
+    font-size: 62.5%;   //(10px=1rem)
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+body {
+    font-family: v.$fuente_principal;
+    font-size: 1.6rem;
+
+    &.fijar-body {
+        overflow: hidden;
+    }
+}
+p {
+    font-size: 2rem;
+    color: v.$negro;
+    line-height: 1.5;
+}
+.contenedor {   //Se da parametros al contenedor
+    width: 95%;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+a {
+    text-decoration: none; //Quite decorarion del texto de nav
+}
+h1, h2, h3 {
+    margin: 0 0 5rem 0;
+}
+h1{
+    font-size: 4rem;
+}
+h2 {
+    font-size: 3.6rem;
+}
+h3 {
+    font-size: 3rem;
+}
+img {
+    max-width: 100%;    //para que el maximo sea 100% 
+    height: auto;
+    width: 100%;
+    display: block;     //asi se alinea al grid
+}
