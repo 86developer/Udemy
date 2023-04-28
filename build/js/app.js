@@ -6,6 +6,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function iniciarApp() { //Crea
     crearGaleria(); //Call
+    scrollNav();
+}
+
+function scrollNav () {
+    const enlaces = document.querySelectorAll('.navegacion-principal e');
+
+    enlaces.forEach( enlace => {
+        enlace.addEventListener('click', function() {
+
+            console.log(e.target);
+        })
+    })
 }
 
 function crearGaleria() {   //Crea
