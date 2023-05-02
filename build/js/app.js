@@ -5,19 +5,28 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function iniciarApp() { //Crea
+    navegacionFija();
     crearGaleria(); //Call
     scrollNav();
 }
 
+/* addEventListener va dentro del forEach, para que recorra cada uno. Por que cuando se usa querySelectorAll da error, si se coloca fuera del forEach.
+e.preventDefault previene el anclaje por defecto. seccionScroll busca el valor. 
+seccion.scrollIntoView({behavior: "smooth"}); genera el efecto*/
+
 function scrollNav () {
-    const enlaces = document.querySelectorAll('.navegacion-principal e');
+    const enlaces = document.querySelectorAll('.navegacion-principal a');
 
     enlaces.forEach( enlace => {
-        enlace.addEventListener('click', function() {
+        enlace.addEventListener('click', function(e) {
+            e.preventDefault();
 
-            console.log(e.target);
-        })
-    })
+            const seccionScroll = e.target.attributes.href.value;
+            const seccion = document.querySelector(seccionScroll);
+            seccion.scrollIntoView({behavior: "smooth"});
+
+        });
+    });
 }
 
 function crearGaleria() {   //Crea
