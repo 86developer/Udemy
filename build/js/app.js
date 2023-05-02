@@ -9,6 +9,22 @@ function iniciarApp() { //Crea
     crearGaleria(); //Call
     scrollNav();
 }
+/* barra, sobreFestival tomo html. addEventListener toma el scroll, y con bounding mira el header y añade una clase para fijar la nav */
+function navegacionFija() {
+    const barra = document.querySelector('.header');
+    const sobreFestival = document.querySelector('.sobre-festival');
+
+    window.addEventListener('scroll', function() {
+        console.log( sobreFestival.getBoundingClientRect() );
+
+        if ( sobreFestival.getBoundingClientRect().bottom < 0 ) {
+            barra.classList.add('fijo');
+        } else {
+            barra.classList.remove('fijo');
+        }
+    });
+}
+
 
 /* addEventListener va dentro del forEach, para que recorra cada uno. Por que cuando se usa querySelectorAll da error, si se coloca fuera del forEach.
 e.preventDefault previene el anclaje por defecto. seccionScroll busca el valor. 
