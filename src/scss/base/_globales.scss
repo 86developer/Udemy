@@ -17,6 +17,9 @@ body {
     &.fijar-body {
         overflow: hidden;
     }
+    &.body-scroll {
+        padding-top: 8.6rem; //86px equivalente al size del nav
+    }
 }
 p {
     font-size: 2rem;
