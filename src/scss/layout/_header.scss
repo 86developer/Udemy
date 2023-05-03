@@ -7,6 +7,8 @@
     //Estilos barra flotante
     @include m.tablet {
         &.fijo {
+            left: 0; //para colocarlo en el lado izq arriba
+            top: 0;
             position: fixed;
             width: 100%;
             box-shadow: .1rem .2rem .3rem #333;
