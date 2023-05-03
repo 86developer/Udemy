@@ -14,6 +14,10 @@ const imagemin = require('gulp-imagemin');
 const webp = require('gulp-webp');
 const avif = require('gulp-avif');
 
+//Javascript
+const terser = require('gulp-terser-js');
+const beautify = require('gulp-beautify');
+
 //Funciones
 function css(done) {    //*Funcion que permite compilar y guardar 
     src("src/scss/**/*.scss")//Identifica todos los archivos en la carpeta
@@ -58,6 +62,8 @@ function versionAvif( done ) {
 
 function javascript( done ) {
     src('src/js/**/*.js')
+        .pipe(beautify({indent_size: 2}))
+        .pipe(terser())
         .pipe(dest('build/js'));
 
     done();
