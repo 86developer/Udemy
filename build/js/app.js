@@ -9,18 +9,21 @@ function iniciarApp() { //Crea
     crearGaleria(); //Call
     scrollNav();
 }
-/* barra, sobreFestival tomo html. addEventListener toma el scroll, y con bounding mira el header y añade una clase para fijar la nav */
+/* barra, sobreFestival tomo html. addEventListener toma el scroll, y con bounding mira el header y añade una clase para fijar la nav. Utilizamos un recurso similar para el body evitando un salto en el scroll cuando queda fijo */
 function navegacionFija() {
     const barra = document.querySelector('.header');
     const sobreFestival = document.querySelector('.sobre-festival');
+    const body = document.querySelector('body');
 
     window.addEventListener('scroll', function() {
         console.log( sobreFestival.getBoundingClientRect() );
 
         if ( sobreFestival.getBoundingClientRect().bottom < 0 ) {
             barra.classList.add('fijo');
+            body.classList.add('body-scroll');
         } else {
             barra.classList.remove('fijo');
+            body.classList.remove('body-scroll');
         }
     });
 }
