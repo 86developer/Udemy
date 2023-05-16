@@ -1,0 +1,6 @@
+Archivos a borrar
+
+nodemodules
+package-lock (npm install se restauran las dependencias)
+
+se sube /build, index y /video
